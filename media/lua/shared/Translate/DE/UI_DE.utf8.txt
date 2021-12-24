@@ -1,4 +1,4 @@
 UI_DE = {
-	UI_trait_pyromaniac = "Pyromaniac",
-	UI_trait_pyromaniacdesc = "Increase stress when not lighting fires.",
+	UI_trait_pyromaniac = "Pyromane",
+	UI_trait_pyromaniacdesc = "Erhöhter Stress wenn gerade nichts angezündet wird.",
 }
