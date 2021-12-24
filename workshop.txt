@@ -27,4 +27,4 @@ description=https://discord.com/invite/theindiestone
 description=
 description=Have fun! ;D
 tags=Build 41;Misc;Multiplayer;Realistic;Weapons
-visibility=friendsOnly
+visibility=public
