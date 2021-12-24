@@ -4,6 +4,19 @@ Pyromania.pyromaniacPlayers = {}
 
 Pyromania.pyromaniacStressIncrease = 0.005
 
+Pyromania.flammableToEnergy = function(flammable)
+	return 50
+end
+
+Pyromania.setFire = function(square, flammable)
+
+	local anywhere = false
+	local energy = Pyromania.flammableToEnergy(flammable)
+
+	local fire = IsoFire.new(getCell(), square, anywhere, energy)
+	square:AddTileObject(fire)
+end
+
 Pyromania.decreasePyromaniacStress = function(player)
 	if player:HasTrait('Pyromaniac') then
 		player:getStats():setStress(0)

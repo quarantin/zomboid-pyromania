@@ -17,7 +17,7 @@ end
 
 function SetFireAction:start()
 	self:setActionAnim('Loot')
-	self.character:SetVariable('LootPosition', 'Mid')
+	self.character:SetVariable('LootPosition', 'Low')
 end
 
 function SetFireAction:stop()
@@ -28,9 +28,7 @@ function SetFireAction:perform()
 	ISBaseTimedAction.perform(self)
 	self.character:setSecondaryHandItem(nil)
 	self.character:getInventory():Remove(self.flammable)
-	local fire = IsoFire.new(getCell(), self.square)
-	fire:AttachAnim("Fire", "01", 4, IsoFireManager.FireAnimDelay, -16, -78, true, 0, false, 0.7, IsoFireManager.FireTintMod)
-	self.square:AddTileObject(fire)
+	Pyromania.setFire(self.square, self.flammable)
 	self.character:setPrimaryHandItem(nil)
 	Pyromania.decreasePyromaniacStress(self.character)
 end
