@@ -1,3 +1,5 @@
+local Pyromania = require('Pyromania/Pyromania_Trait')
+
 SetFireAction = ISBaseTimedAction:derive('SetFireAction')
 
 function SetFireAction:isValid()
@@ -29,7 +31,8 @@ function SetFireAction:perform()
 	local fire = IsoFire.new(getCell(), self.square)
 	fire:AttachAnim("Fire", "01", 4, IsoFireManager.FireAnimDelay, -16, -78, true, 0, false, 0.7, IsoFireManager.FireTintMod)
 	self.square:AddTileObject(fire)
-	--self.square:transmitAddObjectToSquare(fire)
+	self.character:setPrimaryHandItem(nil)
+	Pyromania.decreasePyromaniacStress(self.character)
 end
 
 function SetFireAction:new(character, square, igniter, flammable, time)
