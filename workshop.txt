@@ -7,6 +7,7 @@ description=
 description=[h1]Features[/h1]
 description=[list]
 description=[*]Set anything on fire!
+description=[*]Add trait Pyromaniac: Constant stress increase. Setting things on fire will remove the stress.
 description=[/list]
 description=
 description=[h1]Version[/h1]
