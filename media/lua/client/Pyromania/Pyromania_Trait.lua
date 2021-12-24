@@ -35,10 +35,8 @@ Pyromania.OnCreatePlayer = function(playerId, player)
 end
 
 Pyromania.EveryOneMinute = function()
-	print('DEBUG: EveryOneMinute')
 	for playerId, player in pairs(Pyromania.pyromaniacPlayers) do
 		local stats = player:getStats()
-		print("DEBUG", player:getFullName(), stats:getStress())
 		stats:setStress(stats:getStress() + Pyromania.pyromaniacStressIncrease)
 	end
 end
