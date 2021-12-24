@@ -1,4 +1,7 @@
-function onFillWorldObjectContextMenu(playerId, context, worldobjects, test)
+
+PyromaniaWorldObjectContextMenu = {}
+
+PyromaniaWorldObjectContextMenu.onFillWorldObjectContextMenu = function(playerId, context, worldobjects, test)
 
 	local player = getSpecificPlayer(playerId)
 	local inventory = player:getInventory()
@@ -31,7 +34,7 @@ function onFillWorldObjectContextMenu(playerId, context, worldobjects, test)
 				context:addSubMenu(rootMenu, subMenu)
 				for j = 0, flammables:size() - 1 do
 					local flammable = flammables:get(j)
-					subMenu:addOption(flammable:getName(), worldobjects, onSetFire, player, square, igniter, flammable)
+					subMenu:addOption(flammable:getName(), worldobjects, PyromaniaWorldObjectContextMenu.onSetFire, player, square, igniter, flammable)
 				end
 				return
 			end
@@ -39,7 +42,7 @@ function onFillWorldObjectContextMenu(playerId, context, worldobjects, test)
 	end
 end
 
-function onSetFire(worldobjects, player, square, igniter, flammable)
+PyromaniaWorldObjectContextMenu.onSetFire = function(worldobjects, player, square, igniter, flammable)
 	if luautils.walkAdj(player, square, false) then
 		ISWorldObjectContextMenu.equip(player, player:getPrimaryHandItem(), igniter, true, false)
 		ISWorldObjectContextMenu.equip(player, player:getSecondaryHandItem(), flammable, false, false)
@@ -47,4 +50,4 @@ function onSetFire(worldobjects, player, square, igniter, flammable)
 	end
 end
 
-Events.OnFillWorldObjectContextMenu.Add(onFillWorldObjectContextMenu)
+Events.OnFillWorldObjectContextMenu.Add(PyromaniaWorldObjectContextMenu.onFillWorldObjectContextMenu)
