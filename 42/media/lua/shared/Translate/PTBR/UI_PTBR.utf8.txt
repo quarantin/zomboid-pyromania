@@ -1,0 +1,4 @@
+UI_PTBR = {
+	UI_trait_pyromaniac = "Piromaniaco",
+	UI_trait_pyromaniacdesc = "Aumenta o estresse quando nao acende fogo nas coisas.",
+}
