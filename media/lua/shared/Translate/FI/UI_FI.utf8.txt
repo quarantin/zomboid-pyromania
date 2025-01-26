@@ -1,0 +1,4 @@
+UI_FI = {
+	UI_trait_pyromaniac = "Pyromaniac",
+	UI_trait_pyromaniacdesc = "Increase stress when not lighting fires.",
+}
