@@ -1,8 +1,8 @@
 version=1
 id=2685625532
 title=Pyromania
-description=[img]https://i.imgur.com/p7Fv1Z6.gif[/img]
-description=To put it simply, this mod let's you set anything on fire, assuming you have a lighter or matches and some literature  :D
+description=[h1]Burn Everything[/h1]
+description=To put it simply, this mod let's you set anything on fire, assuming you have a lighter or matches and some literature :D
 description=
 description=[h1]Features[/h1]
 description=[list]
@@ -26,6 +26,11 @@ description=
 description=Feedbacks are welcome! You can find me on the official Project Zomboid Discord server:
 description=https://discord.com/invite/theindiestone
 description=
+description=[h1]Support Me[/h1]
+description=If you like my work please consider supporting me on Ko-Fi!
+description=
+description=[url=https://ko-fi.com/quarantin][img]https://raw.githubusercontent.com/ChuckTheSheep/chuckImages/main/kofi.png[/img][/url]
+description=
 description=Have fun! ;D
-tags=Build 41;Misc;Multiplayer;Realistic;Weapons
+tags=Build 41;Build 42;Misc;Multiplayer;Realistic;Weapons
 visibility=public
