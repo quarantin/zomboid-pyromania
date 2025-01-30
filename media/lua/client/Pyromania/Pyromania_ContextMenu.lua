@@ -1,14 +1,21 @@
 
 Pyromania = {}
 
+Pyromania.igniterPredicate = function(item, player)
+	if getCore():getGameVersion():getMajor() < 42 then
+		return item:getType() == 'Lighter' or item:getType() == 'Matches'
+	else
+		local scriptItem = item:getScriptItem()
+		local displayCategory = scriptItem:getDisplayCategory()
+		return displayCategory == "FireSource"
+	end
+end
+
 Pyromania.getIgniters = function(inventory)
 
 	local igniters = {}
 
-	local igniterItems = inventory:getAllEvalRecurse(function(item, player)
-		return item:getType() == 'Lighter' or item:getType() == 'Matches'
-	end, ArrayList.new())
-
+	local igniterItems = inventory:getAllEvalRecurse(Pyromania.igniterPredicate, ArrayList.new())
 	if igniterItems:size() == 0 then
 		return nil
 	end
