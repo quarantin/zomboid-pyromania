@@ -79,13 +79,28 @@ Pyromania.onFillWorldObjectContextMenu = function(playerId, context, worldobject
 		local square = object:getSquare()
 		if square then
 
+			local setFireOption = context:addOption(getText('ContextMenu_SetFire'), worldobjects)
+			local igniterMenu = context:getNew(context)
+			context:addSubMenu(setFireOption, igniterMenu)
+
 			for igniterName, igniterValues in  pairs(igniters) do
 
-				local rootMenu = context:addOption(getText('ContextMenu_SetFire') .. " [" .. igniterName .. " (" .. tostring(#igniterValues) .. ")]", worldobjects, nil)
-				local subMenu = context:getNew(context)
-				context:addSubMenu(rootMenu, subMenu)
+				local igniterLabel = igniterName .. " (" .. tostring(#igniterValues) .. ")"
+				local igniterOption = igniterMenu:addOption(igniterLabel, worldobjects)
+				local flammableMenu = context:getNew(context)
+				context:addSubMenu(igniterOption, flammableMenu)
+
 				for flammableName, flammableValues in pairs(flammables) do
-					subMenu:addOption(flammableName .. " (" .. tostring(#flammableValues) .. ")", worldobjects, Pyromania.onSetFire, player, square, igniterValues[1], flammableValues[1])
+					local flammableLabel = flammableName .. " (" .. tostring(#flammableValues) .. ")"
+					flammableMenu:addOption(
+						flammableLabel,
+						worldobjects,
+						Pyromania.onSetFire,
+						player,
+						square,
+						igniterValues[1],
+						flammableValues[1]
+					)
 				end
 			end
 			return
